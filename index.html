@@ -2,27 +2,107 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Enviar PDF para Clientes</title>
+    <title>Envio de PDF para Clientes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f3f6fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            background: #fff;
+            margin: 40px auto;
+            padding: 32px 30px 24px 30px;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        h2 {
+            text-align: center;
+            color: #2156a5;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: 500;
+            color: #333;
+        }
+        .emails-list {
+            margin: 18px 0 8px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .emails-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .emails-list input[type="checkbox"] {
+            accent-color: #2156a5;
+            margin-right: 6px;
+        }
+        input[type="file"] {
+            margin: 8px 0 22px 0;
+            border: none;
+            background: #f6faff;
+            padding: 10px;
+            font-size: 15px;
+        }
+        button {
+            background: linear-gradient(90deg,#2156a5 0%, #1a87d9 100%);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-size: 17px;
+            font-weight: 500;
+            padding: 12px 0;
+            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(33,86,165,0.07);
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: linear-gradient(90deg,#1a87d9 0%, #2156a5 100%);
+        }
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 24px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Enviar artigo em PDF</h2>
-    <form action="/enviar" method="post" enctype="multipart/form-data">
-        <label for="pdf">Selecione o arquivo PDF:</label><br>
-        <input type="file" id="pdf" name="pdf" accept=".pdf" required><br><br>
+    <div class="container">
+        <h2>Envio de artigo em PDF</h2>
+        <form action="/enviar" method="post" enctype="multipart/form-data">
+            <label for="pdf">Selecione o arquivo PDF:</label><br>
+            <input type="file" id="pdf" name="pdf" accept=".pdf" required><br>
 
-        <label>Selecione os emails para envio:</label><br>
-        <!-- Exemplo de emails, pode ser renderizado dinamicamente pelo backend -->
-        <input type="checkbox" name="emails[]" value="cliente1@email.com" id="email1">
-        <label for="email1">cliente1@email.com</label><br>
-        <input type="checkbox" name="emails[]" value="cliente2@email.com" id="email2">
-        <label for="email2">cliente2@email.com</label><br>
-        <input type="checkbox" name="emails[]" value="cliente3@email.com" id="email3">
-        <label for="email3">cliente3@email.com</label><br>
-        <input type="checkbox" name="emails[]" value="cliente4@email.com" id="email4">
-        <label for="email4">cliente4@email.com</label><br>
-        <br>
-
-        <button type="submit">Enviar</button>
-    </form>
+            <label>Selecione os emails para envio:</label>
+            <ul class="emails-list">
+                <li>
+                    <input type="checkbox" name="emails[]" value="cliente1@email.com" id="email1">
+                    <label for="email1">cliente1@email.com</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="emails[]" value="cliente2@email.com" id="email2">
+                    <label for="email2">cliente2@email.com</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="emails[]" value="cliente3@email.com" id="email3">
+                    <label for="email3">cliente3@email.com</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="emails[]" value="cliente4@email.com" id="email4">
+                    <label for="email4">cliente4@email.com</label>
+                </li>
+            </ul>
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="footer">
+            Plataforma interna &copy; 2025
+        </div>
+    </div>
 </body>
 </html>
