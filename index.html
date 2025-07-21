@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar PDF para Clientes</title>
+</head>
+<body>
+    <h2>Enviar artigo em PDF</h2>
+    <form action="/enviar" method="post" enctype="multipart/form-data">
+        <label for="pdf">Selecione o arquivo PDF:</label><br>
+        <input type="file" id="pdf" name="pdf" accept=".pdf" required><br><br>
+
+        <label>Selecione os emails para envio:</label><br>
+        <!-- Exemplo de emails, pode ser renderizado dinamicamente pelo backend -->
+        <input type="checkbox" name="emails[]" value="cliente1@email.com" id="email1">
+        <label for="email1">cliente1@email.com</label><br>
+        <input type="checkbox" name="emails[]" value="cliente2@email.com" id="email2">
+        <label for="email2">cliente2@email.com</label><br>
+        <input type="checkbox" name="emails[]" value="cliente3@email.com" id="email3">
+        <label for="email3">cliente3@email.com</label><br>
+        <input type="checkbox" name="emails[]" value="cliente4@email.com" id="email4">
+        <label for="email4">cliente4@email.com</label><br>
+        <br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
